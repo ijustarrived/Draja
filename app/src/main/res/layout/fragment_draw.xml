@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="retroroots.alphadraja.DrawFragment"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/drawLblTxt"
+        android:id="@+id/textView4"
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:autoText="true"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/doneBtnTxt"
+        android:id="@+id/doneBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ClearBtnTxt"
+        android:id="@+id/clearBtn"
+        android:layout_alignBottom="@+id/doneBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/drawBackBtnImg"
+        android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:contentDescription="@string/drawBackBtnImgTxt" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/drawBackBtnImg"
+        android:layout_above="@+id/doneBtn"
+        android:layout_marginTop="10dp">
+
+        <retroroots.alphadraja.DrawingView
+            android:id="@+id/drawView"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background= "#FFFFFFFF"/>
+
+    </FrameLayout>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/drawRestartImgBtn"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginEnd="50dp"
+        android:contentDescription="@string/drawResttartImgBtnTxt"
+        android:src="@android:drawable/ic_menu_rotate" />
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="retroroots.alphadraja.WeaponFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/weaponLblText"
+        android:id="@+id/textView3"
+        android:textIsSelectable="false"
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/drawBtnTxt"
+        android:id="@+id/drawBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="46dp" />
+
+    <CheckBox
+        android:checked="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ShurikenChkBxTxt"
+        android:id="@+id/shurikenChkBx"
+        android:layout_alignTop="@+id/bombChkBx"
+        android:layout_toLeftOf="@+id/textView3"
+        android:layout_toStartOf="@+id/textView3" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/BombChkBxTxt"
+        android:id="@+id/bombChkBx"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/SwordChkBxTxt"
+        android:id="@+id/swordChkBx"
+        android:layout_alignTop="@+id/shurikenChkBx"
+        android:layout_alignLeft="@+id/drawBtn"
+        android:layout_alignStart="@+id/drawBtn" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weaponBackBtnImg"
+        android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+        android:contentDescription="@string/modeBackBtnImgTxt"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weaponRestartImgBtn"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginEnd="50dp"
+        android:contentDescription="@string/weaponRestartImgBnTxt"
+        android:src="@android:drawable/ic_menu_rotate" />
+
+</RelativeLayout>

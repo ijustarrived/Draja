@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="retroroots.alphadraja.fightFragment"
+    android:background="#ffffff">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <WebView
+        android:layout_width = "200dp"
+        android:layout_height="150dp"
+        android:id="@+id/p1wbVw"
+        android:layout_marginLeft="68dp"
+        android:layout_marginStart="68dp"
+        android:layout_alignTop="@+id/p1WeaponImg"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <WebView
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:id="@+id/p2WbVw"
+        android:layout_marginRight="68dp"
+        android:layout_marginEnd="68dp"
+        android:layout_alignTop="@+id/p1wbVw"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/p1WeaponImg"
+        android:src="@android:drawable/arrow_down_float"
+        android:contentDescription="@string/player1WeaponImgTxt"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/p1wbVw"
+        android:layout_alignEnd="@+id/p1wbVw" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/p2WeaponImg"
+        android:src="@android:drawable/arrow_down_float"
+        android:contentDescription="@string/player2WeaponImgTxt"
+        android:layout_alignTop="@+id/p2WbVw"
+        android:layout_alignLeft="@+id/p2WbVw"
+        android:layout_alignStart="@+id/p2WbVw" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/p1Mark2"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/p1WeaponImg"
+        android:layout_alignStart="@+id/p1WeaponImg"
+        android:contentDescription="Losing mark" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/p1Mark3"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/p1WeaponImg"
+        android:layout_alignEnd="@+id/p1WeaponImg" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:id="@+id/p1Mark1"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/p1Mark2"
+        android:layout_toStartOf="@+id/p1Mark2"></ImageView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:id="@+id/p2Mark2"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/p2WeaponImg"
+        android:layout_alignEnd="@+id/p2WeaponImg" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:id="@+id/p2Mark1"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/p2Mark2"
+        android:layout_toEndOf="@+id/p2Mark2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:layout_height="wrap_content"
+        android:id="@+id/p2Mark3"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/p2WeaponImg"
+        android:layout_alignStart="@+id/p2WeaponImg" />
+
+
+</RelativeLayout>
