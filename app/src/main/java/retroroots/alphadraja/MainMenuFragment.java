@@ -1,7 +1,9 @@
 package retroroots.alphadraja;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,8 @@ import android.widget.ImageButton;
 import java.lang.reflect.Field;
 
 import retroroots.alphadraja.CanisterEngine.Android.Fragment.FragmentConfig;
+import retroroots.alphadraja.CanisterEngine.Android.Game.GameManager;
+import retroroots.alphadraja.CanisterEngine.Android.Utilities.Dialoger;
 import retroroots.alphadraja.CanisterEngine.Android.Utilities.Sound;
 
 public class MainMenuFragment extends Fragment {
@@ -33,6 +37,7 @@ public class MainMenuFragment extends Fragment {
                              Bundle savedInstanceState)
     {
         //region Initiators
+
         View  view = inflater.inflate(R.layout.fragment_main_menu, container, false);
 
         startBtn = (Button)view.findViewById(R.id.startBtn);
@@ -146,4 +151,12 @@ public class MainMenuFragment extends Fragment {
         return FRAGMENT_TAG;
     }
 
+
+    public void RestartGame(FragmentManager fragmentManager)
+    {
+        MainMenuFragment mainMenuFragment = new MainMenuFragment();
+
+        fragmentConfig.ReplaceFragment(mainMenuFragment, android.R.id.content,
+               fragmentManager, mainMenuFragment.GetTag(), false);
+    }
 }

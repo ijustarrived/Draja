@@ -35,7 +35,7 @@ import retroroots.alphadraja.CanisterEngine.Android.Widgets.Dialog;
 
 public class Main extends ActionBarActivity implements optionsFragment.OnSoundChanged,
         /*ModeFragment.OnModePicked,*/ WeaponFragment.OnWeaponPicked,
-        DrawFragment.OnPlayerDoneDrawing, Dialoger, AppManager, GameManager
+        DrawFragment.OnPlayerDoneDrawing, Dialoger, AppManager
 {
    private FragmentConfig fragmentConfig = new FragmentConfig();
 
@@ -63,15 +63,6 @@ public class Main extends ActionBarActivity implements optionsFragment.OnSoundCh
         System.exit(0);
     }
 
-    @Override
-    public void RestartGame()
-    {
-       MainMenuFragment mainMenuFragment = new MainMenuFragment();
-
-        fragmentConfig.ReplaceFragment(mainMenuFragment, android.R.id.content,
-                getFragmentManager(), mainMenuFragment.GetTag(), false);
-    }
-
                /*currentPlayer = 1;*/
 
     public enum Players
@@ -88,6 +79,8 @@ public class Main extends ActionBarActivity implements optionsFragment.OnSoundCh
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        SplashScreenActivity.GetActivity().finish();
 
         //region Initiations
         fragmentTags.add("drawFragment");

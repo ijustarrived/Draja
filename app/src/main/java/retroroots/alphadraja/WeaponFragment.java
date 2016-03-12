@@ -94,6 +94,8 @@ public class WeaponFragment extends Fragment
         bombChckBx = (CheckBox)view.findViewById(R.id.bombChkBx);
 
         backImgBtn = (ImageButton)view.findViewById(R.id.weaponBackBtnImg);
+
+        ImageButton restartImgBtn = (ImageButton) view.findViewById(R.id.weaponRestartImgBtn);
         //endregion
 
         //region Listeners
@@ -132,6 +134,17 @@ public class WeaponFragment extends Fragment
             @Override
             public void onClick(View v) {
                 ((Main) getActivity()).onBackPressed();
+            }
+        });
+
+        restartImgBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                MainMenuFragment main = new MainMenuFragment();
+
+                main.RestartGame(getActivity().getFragmentManager());
             }
         });
         //endregion

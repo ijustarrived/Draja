@@ -1,9 +1,6 @@
 package retroroots.alphadraja;
 
-import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -18,12 +15,13 @@ import java.io.File;
 import java.util.Random;
 
 import retroroots.alphadraja.CanisterEngine.Android.Fragment.FragmentConfig;
-import retroroots.alphadraja.CanisterEngine.Android.Utilities.Animation;
+import retroroots.alphadraja.CanisterEngine.Android.Game.Animating;
+import retroroots.alphadraja.CanisterEngine.Android.Game.Animation;
 import retroroots.alphadraja.CanisterEngine.Android.Utilities.FileManage;
 import retroroots.alphadraja.CanisterEngine.Android.Utilities.FileManager;
 import retroroots.alphadraja.CanisterEngine.Android.Utilities.Sound;
 
-public class fightFragment extends Fragment implements FileManager
+public class fightFragment extends Fragment implements FileManager, Animating
 {
     private final String FRAGMENT_TAG = "fightFragment";
 
@@ -37,6 +35,8 @@ public class fightFragment extends Fragment implements FileManager
             aiFile,
             aiFile2;
 
+
+
     private boolean isSoundOn = false;
 
     private File[] allAiFiles;
@@ -46,7 +46,13 @@ public class fightFragment extends Fragment implements FileManager
     private ImageView p1Img,
             p2Img,
             p1WeaponImg,
-            p2WeaponImg;
+            p2WeaponImg,
+            p1Mark1,
+            p1Mark2,
+            p1Mark3,
+            p2Mark1,
+            p2Mark2,
+            p2Mark3;
 
     private int amountOfFiles = 0, //Holds how many files are on ai directory.
     p1Loses = 0, // Holds a count of many time they've lost
@@ -107,13 +113,17 @@ public class fightFragment extends Fragment implements FileManager
 
         p2WeaponImg = (ImageView) view.findViewById(R.id.p2WeaponImg);
 
-        final ImageView p1Mark1 = (ImageView) view.findViewById(R.id.p1Mark1),
-                p1Mark2 = (ImageView) view.findViewById(R.id.p1Mark2),
-                p1Mark3 = (ImageView) view.findViewById(R.id.p1Mark3);
+        p1Mark1 = (ImageView) view.findViewById(R.id.p1Mark1);
 
-        final ImageView p2Mark1 = (ImageView) view.findViewById(R.id.p2Mark1),
-                p2Mark2 = (ImageView) view.findViewById(R.id.p2Mark2),
-                p2Mark3 = (ImageView) view.findViewById(R.id.p2Mark3);
+        p1Mark2 = (ImageView) view.findViewById(R.id.p1Mark2);
+
+        p1Mark3 = (ImageView) view.findViewById(R.id.p1Mark3);
+
+        p2Mark1 = (ImageView) view.findViewById(R.id.p2Mark1);
+
+        p2Mark2 = (ImageView) view.findViewById(R.id.p2Mark2);
+
+        p2Mark3 = (ImageView) view.findViewById(R.id.p2Mark3);
 
         final Bundle previousBundle = getArguments();
 
@@ -121,61 +131,9 @@ public class fightFragment extends Fragment implements FileManager
         {
             p1Loses = previousBundle.getInt("p1Loses");
 
-            //region Set loss visibility for p1
-
-            if (p1Loses != 0)
-            {
-                if (p1Loses < 2)
-                {
-                    p1Mark1.setVisibility(View.VISIBLE);
-                }
-
-                else if (p1Loses < 3)
-                {
-                    p1Mark1.setVisibility(View.VISIBLE);
-
-                    p1Mark2.setVisibility(View.VISIBLE);
-                }
-
-                else
-                {
-                    p1Mark1.setVisibility(View.VISIBLE);
-
-                    p1Mark2.setVisibility(View.VISIBLE);
-
-                    p1Mark3.setVisibility(View.VISIBLE);
-                }
-            }
-            //endregion
-
             p2Loses = previousBundle.getInt("p2Loses");
 
-            //region Set loss visibility for p2
-
-            if (p2Loses != 0)
-            {
-                if (p2Loses < 2)
-                {
-                    p2Mark1.setVisibility(View.VISIBLE);
-                }
-
-                else if (p2Loses < 3)
-                {
-                    p2Mark1.setVisibility(View.VISIBLE);
-
-                    p2Mark2.setVisibility(View.VISIBLE);
-                }
-
-                else
-                {
-                    p2Mark1.setVisibility(View.VISIBLE);
-
-                    p2Mark2.setVisibility(View.VISIBLE);
-
-                    p2Mark3.setVisibility(View.VISIBLE);
-                }
-            }
-            //endregion
+            SetPlayerLossVisibilities();
         }
 
         p1SavedWeaponUri = previousBundle.getString("p1SavedWeaponImgUri");
@@ -294,6 +252,8 @@ public class fightFragment extends Fragment implements FileManager
             CheckWhoWon(p1Weapon, aiWeapon);
         }
 
+        Animation.Wait(250);
+
         FragmentConfig fragmentConfig = new FragmentConfig();
 
         Sound sound = ((Main) getActivity()).GetSoundObj();
@@ -308,6 +268,8 @@ public class fightFragment extends Fragment implements FileManager
         fragmentBundle.putInt("p1Loses", p1Loses);
 
         fragmentBundle.putInt("p2Loses",p2Loses);
+
+
 
         // If loses don't equal max turns, play another round
         if ( (p1Loses + p2Loses) != bestOutOf )
@@ -449,6 +411,66 @@ public class fightFragment extends Fragment implements FileManager
         fileManage.Copy(p2File, aiFile2);
     }
 
+    /**
+     * Sets visibility for loss images
+     */
+    public void SetPlayerLossVisibilities()
+    {
+        //region Set loss visibility for p1
+
+        if (p1Loses != 0)
+        {
+            if (p1Loses < 2)
+            {
+                p1Mark1.setVisibility(View.VISIBLE);
+            }
+
+            else if (p1Loses < 3)
+            {
+                p1Mark1.setVisibility(View.VISIBLE);
+
+                p1Mark2.setVisibility(View.VISIBLE);
+            }
+
+            else
+            {
+                p1Mark1.setVisibility(View.VISIBLE);
+
+                p1Mark2.setVisibility(View.VISIBLE);
+
+                p1Mark3.setVisibility(View.VISIBLE);
+            }
+        }
+        //endregion
+
+        //region Set loss visibility for p2
+
+        if (p2Loses != 0)
+        {
+            if (p2Loses < 2)
+            {
+                p2Mark1.setVisibility(View.VISIBLE);
+            }
+
+            else if (p2Loses < 3)
+            {
+                p2Mark1.setVisibility(View.VISIBLE);
+
+                p2Mark2.setVisibility(View.VISIBLE);
+            }
+
+            else
+            {
+                p2Mark1.setVisibility(View.VISIBLE);
+
+                p2Mark2.setVisibility(View.VISIBLE);
+
+                p2Mark3.setVisibility(View.VISIBLE);
+            }
+        }
+        //endregion
+    }
+
     //region FileManager overrides
 
     /*Creates a file according to specifications. In this case checks if there's any player files
@@ -565,6 +587,11 @@ public class fightFragment extends Fragment implements FileManager
 
     @Override
     public void Append() {
+
+    }
+
+    @Override
+    public void Play() {
 
     }
     //endregion

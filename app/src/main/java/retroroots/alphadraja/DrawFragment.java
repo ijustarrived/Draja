@@ -1,6 +1,7 @@
 package retroroots.alphadraja;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.graphics.Canvas;
 import android.os.Bundle;
@@ -62,7 +63,8 @@ public class DrawFragment extends Fragment
         Button doneBtn = (Button) view.findViewById(R.id.doneBtn),
                 clearBtn = (Button)view.findViewById(R.id.clearBtn);
 
-        ImageButton backImgBtn = (ImageButton) view.findViewById(R.id.drawBackBtnImg);
+        ImageButton backImgBtn = (ImageButton) view.findViewById(R.id.drawBackBtnImg),
+                restartImgBtn = (ImageButton) view.findViewById(R.id.drawRestartImgBtn);
         //endregion
 
         //region Listeners
@@ -81,6 +83,17 @@ public class DrawFragment extends Fragment
             public void onClick(View v)
             {
                 ((Main)getActivity()).onBackPressed();
+            }
+        });
+
+        restartImgBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                MainMenuFragment main = new MainMenuFragment();
+
+                main.RestartGame(getActivity().getFragmentManager());
             }
         });
 
