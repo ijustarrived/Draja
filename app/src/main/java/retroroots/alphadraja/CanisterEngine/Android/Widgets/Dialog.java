@@ -1,6 +1,7 @@
 package retroroots.alphadraja.CanisterEngine.Android.Widgets;
 
 import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,13 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import retroroots.alphadraja.CanisterEngine.Android.Utilities.Dialoger;
+import retroroots.alphadraja.CanisterEngine.Android.Utilities.Sound;
 import retroroots.alphadraja.Main;
 import retroroots.alphadraja.R;
+import retroroots.alphadraja.fightFragment;
 
 /**
  * Created by devilsLap on 3/2/2016.
  */
-public class Dialog extends DialogFragment
+public class Dialog extends DialogFragment implements DialogInterface.OnDismissListener
 {
     public enum DialogStates
     {
@@ -90,5 +93,14 @@ public class Dialog extends DialogFragment
     public void SetDialogTitle(String title)
     {
         dialogTitle = title;
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog)
+    {
+        Sound sound = ((Main) getActivity()).GetSoundObj();
+
+        if(Main.GetIsSoundOn())
+            sound.GetCurrentlyPlayingSong().start();
     }
 }

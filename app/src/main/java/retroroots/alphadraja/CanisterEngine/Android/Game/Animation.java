@@ -1,5 +1,8 @@
 package retroroots.alphadraja.CanisterEngine.Android.Game;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class Animation
 {
     public Animation()
@@ -8,16 +11,26 @@ public class Animation
     }
 
     /**
-     * Simple loop that's suppose to stop the app. Good for waiting till an animation is over.
+     * Simple loop that's suppose to stop the app using two timestamps.
+     * Good for waiting till an animation is over.
      * Doesn't run on a separate thread.
      *
-     * @param cycles how many cycles should the loop run
+     * @param seconds how many seconds should the loop run
      */
-    public static void Wait(int cycles)
+    public static void Wait(int seconds)
     {
-        for (int i = 0; i < cycles; i++)
-        {
+        Calendar currentTime = Calendar.getInstance(),
+                finalTime = Calendar.getInstance();
 
+        currentTime.setTime(new Date());
+
+        finalTime.setTime(new Date());
+
+        finalTime.add(Calendar.SECOND, seconds);
+
+        while(finalTime.after(currentTime))
+        {
+            currentTime.setTime(new Date());
         }
     }
 }

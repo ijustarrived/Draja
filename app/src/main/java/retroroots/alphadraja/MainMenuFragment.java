@@ -4,11 +4,13 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.lang.reflect.Field;
 
@@ -18,6 +20,12 @@ import retroroots.alphadraja.CanisterEngine.Android.Utilities.Dialoger;
 import retroroots.alphadraja.CanisterEngine.Android.Utilities.Sound;
 
 public class MainMenuFragment extends Fragment {
+
+    public enum Mode
+    {
+        Pvp,
+        Pve
+    }
 
     private final String FRAGMENT_TAG = "mainMenuFragment";
 
@@ -141,9 +149,21 @@ public class MainMenuFragment extends Fragment {
         }
 
         //fragment that replaces main
-        ModeFragment modeFragment = new ModeFragment();
 
-        fragmentConfig.ReplaceFragment(modeFragment, android.R.id.content, getFragmentManager(), modeFragment.GetTag(), true);
+        Bundle activityBundle = new Bundle();
+
+        activityBundle.putBoolean("soundFlag", ((Main)getActivity()).GetIsSoundOn());
+
+        activityBundle.putSerializable("mode", Mode.Pvp);
+
+        WeaponFragment weaponFragment = new WeaponFragment();
+
+        fragmentConfig.ReplaceFragment(weaponFragment, activityBundle, android.R.id.content,
+                getFragmentManager(), weaponFragment.GetTag(), true);
+
+        /* ModeFragment modeFragment = new ModeFragment();
+
+        fragmentConfig.ReplaceFragment(modeFragment, android.R.id.content, getFragmentManager(), modeFragment.GetTag(), true);*/
     }
 
     public String GetTag()
@@ -152,11 +172,34 @@ public class MainMenuFragment extends Fragment {
     }
 
 
-    public void RestartGame(FragmentManager fragmentManager)
-    {
+    public void RestartGame(FragmentManager fragmentManager) {
         MainMenuFragment mainMenuFragment = new MainMenuFragment();
 
-        fragmentConfig.ReplaceFragment(mainMenuFragment, android.R.id.content,
-               fragmentManager, mainMenuFragment.GetTag(), false);
+//
+
+        /*String currentFragmentTag = fragmentManager.findFragmentById(android.R.id.content).getTag();
+
+        if (currentFragmentTag.contains("weapon"))
+        {
+            fragmentConfig.ReplaceFragment(mainMenuFragment, android.R.id.content,
+                    fragmentManager, mainMenuFragment.GetTag() + "2", true);
+        }*/
+
+       /* try
+        {*/
+            //FragmentConfig.PopStacks(fragmentManager, mainMenuFragment.GetTag());
+
+            fragmentConfig.ReplaceFragment(mainMenuFragment, android.R.id.content,
+                    fragmentManager, mainMenuFragment.GetTag(), true);
+        //}
+
+        /*catch (Exception e)
+        {
+            if (e.getMessage().equals(""))
+            {
+
+            }
+
+        }*/
     }
 }

@@ -1,6 +1,7 @@
 package retroroots.alphadraja;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.graphics.Canvas;
@@ -31,6 +32,8 @@ public class DrawFragment extends Fragment
 
     private DrawingView drawView;
 
+    private ImageButton soundImgBtn = null;
+
     private OnPlayerDoneDrawing onPlayerDoneDrawing;
 
     private Main.Players currentPlayer = null;
@@ -53,8 +56,6 @@ public class DrawFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
         //region Init variables
         View view = inflater.inflate(R.layout.fragment_draw, container, false);
 
@@ -65,6 +66,8 @@ public class DrawFragment extends Fragment
 
         ImageButton backImgBtn = (ImageButton) view.findViewById(R.id.drawBackBtnImg),
                 restartImgBtn = (ImageButton) view.findViewById(R.id.drawRestartImgBtn);
+
+        soundImgBtn = (ImageButton) view.findViewById(R.id.drawSoungImgBtn);
         //endregion
 
         //region Listeners
@@ -82,9 +85,20 @@ public class DrawFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                ((Main)getActivity()).onBackPressed();
+                ((Main)getActivity()).onBackBtnPressed();
             }
         });
+
+        soundImgBtn.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        SoundImgBtnClick(v);
+                    }
+                }
+        );
 
         restartImgBtn.setOnClickListener(new View.OnClickListener()
         {
@@ -107,10 +121,42 @@ public class DrawFragment extends Fragment
         });
         //endregion
 
-        //currentPlayer = ((Main)getActivity()).GetCurrentPlayer();
+        if (((Main)getActivity()).GetIsSoundOn())
+            soundImgBtn.setImageResource(android.R.drawable.ic_lock_silent_mode_off);
+
+        else
+            soundImgBtn.setImageResource(android.R.drawable.ic_lock_silent_mode);
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    private void SoundImgBtnClick(View v)
+    {
+        //if sound is on and clicked, turn off
+        if (((Main)getActivity()).GetIsSoundOn())
+        {
+            ((Main)getActivity()).SetIsSoundOn(false);
+
+            ((Main)getActivity()).GetSoundObj().StopSong();
+
+            ((Main)getActivity()).GetSoundObj().StopFX();
+
+            soundImgBtn.setImageResource(android.R.drawable.ic_lock_silent_mode);
+
+            //soundImgBtn.setBackgroundResource(android.R.drawable.ic_lock_silent_mode);
+        }
+
+        else
+        {
+            ((Main)getActivity()).SetIsSoundOn(true);
+
+            ((Main)getActivity()).GetSoundObj().PlaySong(R.raw.drajamainmenueddited, true, getActivity());
+
+            soundImgBtn.setImageResource(android.R.drawable.ic_lock_silent_mode_off);
+
+            //soundImgBtn.setBackgroundResource(android.R.drawable.ic_lock_silent_mode_off);
+        }
     }
 
     @Override
@@ -155,44 +201,35 @@ public class DrawFragment extends Fragment
             fragmentBundle.putInt("p2Loses", previousBundle.getInt("p2Loses"));
         }
 
-        /*int modeId = previousBundle.getInt("modeId"),*/
-
-        ModeFragment.Mode mode = (ModeFragment.Mode)previousBundle.getSerializable("mode");
+        MainMenuFragment.Mode mode = (MainMenuFragment.Mode)previousBundle.getSerializable("mode");
 
         WeaponFragment.Weapons player1Weapon = (WeaponFragment.Weapons)previousBundle.getSerializable("player1Weapon"),
                 player2Weapon = null,
                 aiWeapon = null;
 
-        //fragmentBundle.putInt("player1WeaponId", player1WeaponId);
-
         fragmentBundle.putSerializable("player1Weapon", player1Weapon);
-
-        //player2WeaponId = previousBundle.getInt("player2WeaponId");
 
         player2Weapon = (WeaponFragment.Weapons)previousBundle.getSerializable("player2Weapon");
 
         //0 means null
-        if (/*player2WeaponId > 0*/ player2Weapon != null)
-            //fragmentBundle.putInt("player2WeaponId", player2WeaponId);
-        fragmentBundle.putSerializable("player2Weapon", player2Weapon);
-
-        //aiWeaponId = previousBundle.getInt("aiWeaponId");
+        if (player2Weapon != null)
+            fragmentBundle.putSerializable("player2Weapon", player2Weapon);
 
         aiWeapon = (WeaponFragment.Weapons)previousBundle.getSerializable("aiWeapon");
 
-        if (/*aiWeaponId > 0*/ aiWeapon != null)
-            //fragmentBundle.putInt("aiWeaponId", aiWeaponId);
-                fragmentBundle.putSerializable("aiWeapon", aiWeapon);
-
-        //fragmentBundle.putInt("modeId", modeId);
+        if (aiWeapon != null)
+            fragmentBundle.putSerializable("aiWeapon", aiWeapon);
 
         fragmentBundle.putSerializable("mode", mode);
 
-        boolean isSoundOn = previousBundle.getBoolean("soundFlag");
+        boolean isSoundOn = previousBundle.getBoolean("soundFlag"),
+                _isSoundOn = ((Main)getActivity()).GetIsSoundOn();
+
+        //If the previous fragment was mute and then this one isn't save this value
+        if(isSoundOn != _isSoundOn)
+            isSoundOn = _isSoundOn;
 
         fragmentBundle.putBoolean("soundFlag", isSoundOn);
-
-        //currentPlayer = previousBundle.getInt("currentPlayer");
 
         currentPlayer = (Main.Players)previousBundle.getSerializable("currentPlayer");
 
@@ -221,25 +258,21 @@ public class DrawFragment extends Fragment
         {
             case Pvp:
 
-                if (/*currentPlayer == 1*/ currentPlayer.equals(Main.Players.p1))
+                if (currentPlayer.equals(Main.Players.p1))
                 {
-                    /*currentPlayer++;*/
-
                     currentPlayer = Main.Players.p2;
 
                     fragmentBundle.putSerializable("currentPlayer", currentPlayer);
 
-                    //savedImgUri =  drawView.SaveImg(getActivity().getContentResolver(), "player1Img", "Contains player1's img");
-
-                    //fragmentBundle.putString("p1SavedWeaponImgUri", savedImgUri);
-
-                    drawView.SavePlayerImg("p1WeaponImg", getActivity(), p1SavePath/*, aiSavePath*/);
+                    drawView.SavePlayerImg("p1WeaponImg", getActivity(), p1SavePath);
 
                     savedP1WeaponImgUri = drawView.GetPlayer1SaveImgPath();
 
                     fragmentBundle.putString("p1SavedWeaponImgUri", savedP1WeaponImgUri);
 
-                    fragmentConfig.ReplaceFragment(weaponFragment, fragmentBundle, android.R.id.content, getFragmentManager(), weaponFragment.GetTag(), false);
+                    fragmentConfig.ReplaceFragment(weaponFragment, fragmentBundle,
+                            android.R.id.content, getFragmentManager(), weaponFragment.GetTag(),
+                            true);
                 }
 
                 else
@@ -250,34 +283,33 @@ public class DrawFragment extends Fragment
 
                     fragmentBundle.putString("p1SavedWeaponImgUri", (previousBundle.getString("p1SavedWeaponImgUri")));
 
-                    /*savedImgUri =  drawView.SaveImg(getActivity().getContentResolver(), "player2Img", "Contains player2's img");
-
-                    fragmentBundle.putString("p2SavedWeaponImgUri", savedImgUri);*/
-
                     drawView.SavePlayerImg("p2WeaponImg", getActivity(), p2SavePath/*, aiSavePath*/);
 
                     savedP2WeaponImgUri = drawView.GetPlayer2SaveImgPath();
 
                     fragmentBundle.putString("p2SavedWeaponImgUri", savedP2WeaponImgUri);
 
-                    fragmentConfig.ReplaceFragment(_fightFragment, fragmentBundle, android.R.id.content, getFragmentManager(), _fightFragment.GetTag(), false);
+                    fragmentConfig.ReplaceFragment(_fightFragment, fragmentBundle,
+                            android.R.id.content, getFragmentManager(), _fightFragment.GetTag(),
+                            false);
                 }
 
                 break;
 
-            case Pve:
+           /* case Pve:
 
                 //savedImgUri = drawView.SaveImg(getActivity().getContentResolver(), "player1Img", "Contains player1's img");
 
-                drawView.SavePlayerImg("p1WeaponImg", getActivity(), p1SavePath/*, aiSavePath*/);
+                drawView.SavePlayerImg("p1WeaponImg", getActivity(), p1SavePath*//*, aiSavePath*//*);
 
                 savedP1WeaponImgUri = drawView.GetPlayer1SaveImgPath();
 
                 fragmentBundle.putString("p1SavedWeaponImgUri", savedP1WeaponImgUri);
 
-                fragmentConfig.ReplaceFragment(_fightFragment, fragmentBundle, android.R.id.content, getFragmentManager(), _fightFragment.GetTag(), false);
+                fragmentConfig.ReplaceFragment(_fightFragment, fragmentBundle,
+                        android.R.id.content, getFragmentManager(), _fightFragment.GetTag(), false);
 
-                break;
+                break;*/
         }
     }
 

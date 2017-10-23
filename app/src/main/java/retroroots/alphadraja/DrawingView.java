@@ -36,7 +36,7 @@ public class DrawingView extends View
 
     private static Canvas drawCanvas; // Canvas used to draw on
 
-    private Bitmap canvasBitmap;
+    private static Bitmap canvasBitmap;
 
     private String p1ImgPath,
                    p2ImgPath;
@@ -169,6 +169,9 @@ public class DrawingView extends View
             File playerFile = new File(/*context.getFilesDir() + File.separator + playerPath*/ playerDir , imgName);
                     //aiFile = new File(context.getFilesDir() + aiPath, imgName);
 
+            if(playerFile.exists())
+                playerFile.delete();
+
             playerFile.createNewFile();
 
             /*Saves player path depending if the file is player 1 or 2.
@@ -214,5 +217,10 @@ public class DrawingView extends View
     public String GetPlayer2SaveImgPath()
     {
         return p2ImgPath;
+    }
+
+    public static void RecycleCanvasBitmap()
+    {
+        canvasBitmap.recycle();
     }
 }

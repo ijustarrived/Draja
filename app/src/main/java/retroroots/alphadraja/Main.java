@@ -20,16 +20,8 @@ import retroroots.alphadraja.CanisterEngine.Android.Widgets.Dialog;
  *
  * Add UI images/gifs
  *
- * Add Splash screen
- *
- * Add exit dialog before quitting game.
  *
  * Program onResume for when the phone goes idle.
- *
- * Fight song plays when screen goes idle and when it goes active again, see if I can fix that.
- * Must not play again, after 1st played. Also, it plays twice on the 1st time. Must play only once.
- *
- * Add weapon to fighters
  *
 * */
 
@@ -37,7 +29,9 @@ public class Main extends ActionBarActivity implements optionsFragment.OnSoundCh
         /*ModeFragment.OnModePicked,*/ WeaponFragment.OnWeaponPicked,
         DrawFragment.OnPlayerDoneDrawing, Dialoger, AppManager
 {
-   private FragmentConfig fragmentConfig = new FragmentConfig();
+    private static Dialog d = null;
+
+    private FragmentConfig fragmentConfig = new FragmentConfig();
 
    private LinkedList<String> fragmentTags = new LinkedList<String>();
 
@@ -54,6 +48,11 @@ public class Main extends ActionBarActivity implements optionsFragment.OnSoundCh
                player2WeaponId = 0,
                aiWeaponId = 0,
                modeId = 0;
+
+    public static Dialog GetPauseDialog()
+    {
+        return d;
+    }
 
     @Override
     public void KillApp()
@@ -148,19 +147,18 @@ public class Main extends ActionBarActivity implements optionsFragment.OnSoundCh
         }
     }
 
-    @Override
-    public void onBackPressed()
+    public void onBackBtnPressed()
     {
         Fragment currentFragment = getFragmentManager().findFragmentById(android.R.id.content);
 
         Bundle currentFragmentArguments = currentFragment.getArguments();
 
         if (currentFragmentArguments != null)
-           //currentPlayer = currentFragmentArguments.getInt("currentPlayer");
-                currentPlayer = (Players)currentFragmentArguments.getSerializable("currentPlayer");
+            //currentPlayer = currentFragmentArguments.getInt("currentPlayer");
+            currentPlayer = (Players)currentFragmentArguments.getSerializable("currentPlayer");
 
         //if not on last fragment(fight) then check if can go back to last fragment
-        if (!currentFragment.getTag().contains("fight"))
+        if (!currentFragment.getTag().contains("fight") && !currentFragment.getTag().contains("#"))
         {
             // Is there more than one fragment saved(1 is main menu fragment) and is player 1?
             // Player 2 can only go back when drawing
@@ -171,7 +169,7 @@ public class Main extends ActionBarActivity implements optionsFragment.OnSoundCh
             }
 
             //Player 2 can't go back if picking weapon
-            else if (/*currentPlayer > 1*/ currentFragment.equals(Players.p2)
+            else if (/*currentPlayer > 1*/ currentPlayer.equals(Players.p2)
                     && !currentFragment.getTag().contains("weapon"))
             {
                 getFragmentManager().popBackStack();
@@ -219,8 +217,83 @@ public class Main extends ActionBarActivity implements optionsFragment.OnSoundCh
     }
 
     @Override
+    public void onBackPressed()
+    {
+
+        ShowDialog();
+        /*Fragment currentFragment = getFragmentManager().findFragmentById(android.R.id.content);
+
+        Bundle currentFragmentArguments = currentFragment.getArguments();
+
+        if (currentFragmentArguments != null)
+           //currentPlayer = currentFragmentArguments.getInt("currentPlayer");
+                currentPlayer = (Players)currentFragmentArguments.getSerializable("currentPlayer");
+
+        //if not on last fragment(fight) then check if can go back to last fragment
+        if (!currentFragment.getTag().contains("fight") && !currentFragment.getTag().contains("#"))
+        {
+            // Is there more than one fragment saved(1 is main menu fragment) and is player 1?
+            // Player 2 can only go back when drawing
+            if (getFragmentManager().getBackStackEntryCount() > 1  && *//*currentPlayer < 2*//*
+                    (currentPlayer == null || currentPlayer.equals(Players.p1)))
+            {
+                getFragmentManager().popBackStack();
+            }
+
+            //Player 2 can't go back if picking weapon
+            else if (*//*currentPlayer > 1*//* currentPlayer.equals(Players.p2)
+                    && !currentFragment.getTag().contains("weapon"))
+            {
+                getFragmentManager().popBackStack();
+            }
+
+            else
+            {
+                //show to exit or go back to main menu
+
+                ShowDialog();
+
+                *//*dialog.show(getFragmentManager(), "pauseDialog");
+
+                String dialogStateTxt = dialog.GetDialogStateTxt();
+
+                if (dialogStateTxt.equals(Dialog.DialogStates.Exit.toString()))
+                {
+                    finish();
+
+                    System.exit(0);
+                }
+
+                else if (dialogStateTxt.equals(Dialog.DialogStates.Restart.toString()))
+                {
+                    ModeFragment modeFragment = new ModeFragment();
+
+                    fragmentConfig.ReplaceFragment(modeFragment, android.R.id.content,
+                            getFragmentManager(), modeFragment.GetTag(), false);
+                }      *//*
+            }
+        }
+
+        else
+        {
+            //show to exit or go back to main menu
+
+            ShowDialog();
+
+            //dialog.show(getFragmentManager(), "pauseDialog");
+
+//            finish();
+//
+//            System.exit(0);
+        }*/
+    }
+
+    @Override
     public void ShowDialog()
     {
+        if(isSoundOn)
+            sound.GetCurrentlyPlayingSong().pause();
+
         Dialog d = new Dialog();
 
         d.SetDialogTitle("About to exit...");
@@ -250,12 +323,6 @@ public class Main extends ActionBarActivity implements optionsFragment.OnSoundCh
     {
         isSoundOn = isOn;
     }
-
-    /*@Override
-    public void SetModeId(int modeId)
-    {
-        this.modeId = modeId;
-    }*/
 
     @Override
     public void SetPlayer1WeaponId(int weaponId)
@@ -301,7 +368,7 @@ public class Main extends ActionBarActivity implements optionsFragment.OnSoundCh
         return path;
     }
 
-    public boolean GetIsSoundOn()
+    public static boolean GetIsSoundOn()
     {
         return isSoundOn;
     }

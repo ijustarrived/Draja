@@ -31,15 +31,14 @@ public class WeaponFragment extends Fragment
         sword
     }
 
-    private ModeFragment modeFragment = new ModeFragment();
-
     private final String FRAGMENT_TAG = "weaponFragment";
 
     private CheckBox swordChckBx = null,
                      bombChckBx = null,
                      shurikenChckBx = null;
 
-    private ImageButton backImgBtn = null;
+    private ImageButton backImgBtn = null,
+                        soundImgBtn = null;
 
     private Main.Players currentPlayer = Main.Players.p1;
 
@@ -75,8 +74,6 @@ public class WeaponFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        //getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
         View view = inflater.inflate(R.layout.fragment_weapon, container, false);
 
         //region Init variables
@@ -96,6 +93,8 @@ public class WeaponFragment extends Fragment
         backImgBtn = (ImageButton)view.findViewById(R.id.weaponBackBtnImg);
 
         ImageButton restartImgBtn = (ImageButton) view.findViewById(R.id.weaponRestartImgBtn);
+
+        soundImgBtn = (ImageButton)view.findViewById(R.id.weapongSoungImgBtn);
         //endregion
 
         //region Listeners
@@ -133,7 +132,7 @@ public class WeaponFragment extends Fragment
         backImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((Main) getActivity()).onBackPressed();
+                ((Main) getActivity()).onBackBtnPressed();
             }
         });
 
@@ -147,15 +146,30 @@ public class WeaponFragment extends Fragment
                 main.RestartGame(getActivity().getFragmentManager());
             }
         });
+
+        soundImgBtn.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        SoundImgBtnClick(v);
+                    }
+                }
+        );
         //endregion
+
+        if (((Main)getActivity()).GetIsSoundOn())
+            soundImgBtn.setImageResource(android.R.drawable.ic_lock_silent_mode_off);
+
+        else
+            soundImgBtn.setImageResource(android.R.drawable.ic_lock_silent_mode);
 
         checkBoxes.add(shurikenChckBx);
 
         checkBoxes.add(swordChckBx);
 
         checkBoxes.add(bombChckBx);
-
-        //currentPlayer = previousBundle.getInt("currentPlayer");
 
         currentPlayer = (Main.Players)previousBundle.getSerializable("currentPlayer");
 
@@ -206,7 +220,14 @@ public class WeaponFragment extends Fragment
             fragmentBundle.putInt("p2Loses", previousBundle.getInt("p2Loses"));
         }
 
-        boolean isSoundOn = previousBundle.getBoolean("soundFlag");
+        boolean isSoundOn = previousBundle.getBoolean("soundFlag"),
+                _isSoundOn = ((Main)getActivity()).GetIsSoundOn();
+
+        //If the previous fragment was mute and then this one isn't save this value
+        if(isSoundOn != _isSoundOn)
+            isSoundOn = _isSoundOn;
+
+        fragmentBundle.putBoolean("soundFlag", isSoundOn);
 
         String p1SavedWeaponImgUri = previousBundle.getString("p1SavedWeaponImgUri");
 
@@ -214,28 +235,17 @@ public class WeaponFragment extends Fragment
         if (p1SavedWeaponImgUri != null)
             fragmentBundle.putString("p1SavedWeaponImgUri", p1SavedWeaponImgUri);
 
-        fragmentBundle.putBoolean("soundFlag", isSoundOn);
-
-        /*int modeId = previousBundle.getInt("modeId"),*/
-
-        ModeFragment.Mode mode = (ModeFragment.Mode) previousBundle.getSerializable("mode");
-
-        //int player1WeaponId = previousBundle.getInt("player1WeaponId");
+        MainMenuFragment.Mode mode = (MainMenuFragment.Mode) previousBundle.getSerializable("mode");
 
         Weapons player1Weapon = null;
 
         player1Weapon = (Weapons) previousBundle.getSerializable("player1Weapon");
 
         //Is weapon data available in bundle? Yes? then place in new bundle
-        if (/*player1WeaponId > 0*/ player1Weapon != null)
-            //fragmentBundle.putInt("player1WeaponId", player1WeaponId);
+        if (player1Weapon != null)
                 fragmentBundle.putSerializable("player1Weapon", player1Weapon);
 
-        //fragmentBundle.putInt("modeId", modeId);
-
         fragmentBundle.putSerializable("mode", mode);
-
-        //fragmentBundle.putInt("currentPlayer", currentPlayer);
 
         fragmentBundle.putSerializable("currentPlayer",currentPlayer);
 
@@ -291,37 +301,27 @@ public class WeaponFragment extends Fragment
         }
     }
 
-    private void /*Bundle*/ SavePickedWeapon (int weaponId/*, int currentPlayer, int modeId, Bundle bundle*/)
+    private void SoundImgBtnClick(View v)
     {
-        if (/*modeId*/ ((Main)getActivity()).GetModeId() == 0)
+        //if sound is on and clicked, turn off
+        if (((Main)getActivity()).GetIsSoundOn())
         {
-            if (/*currentPlayer*/ /*((Main)getActivity()).GetCurrentPlayer() == 1*/
-                    ((Main)getActivity()).GetCurrentPlayer().equals(Main.Players.p1))
-                //bundle.putInt("player1WeaponId", weaponId);
-                onWeaponPicked.SetPlayer1WeaponId(weaponId);
+            ((Main)getActivity()).SetIsSoundOn(false);
 
-            else
-                //bundle.putInt("player2WeaponId", weaponId);
-                onWeaponPicked.SetPlayer2WeaponId(weaponId);
+            ((Main)getActivity()).GetSoundObj().StopSong();
 
-            //return bundle;
+            ((Main)getActivity()).GetSoundObj().StopFX();
+
+            soundImgBtn.setImageResource(android.R.drawable.ic_lock_silent_mode);
         }
 
-        //pve
         else
         {
-            onWeaponPicked.SetPlayer1WeaponId(weaponId);
+            ((Main)getActivity()).SetIsSoundOn(true);
 
-            //bundle.putInt("player1WeaponId", weaponId);
+            ((Main)getActivity()).GetSoundObj().PlaySong(R.raw.drajamainmenueddited, true, getActivity());
 
-            //weapon is randomly picked for AI
-            Random random = new Random();
-
-            //bundle.putInt("aiWeaponId", random.nextInt(2));
-
-            //return bundle;
-
-            onWeaponPicked.SetAIWeaponId(random.nextInt(2));
+            soundImgBtn.setImageResource(android.R.drawable.ic_lock_silent_mode_off);
         }
     }
 
@@ -330,8 +330,8 @@ public class WeaponFragment extends Fragment
      *
      * @return Built bundle
     * */
-    private Bundle SavePickedWeapon (/*int weaponId*/ Weapons weapon , Main.Players currentPlayer /*int currentPlayer*/, /*int modeId,*/
-                                     ModeFragment.Mode _mode, Bundle bundle)
+    private Bundle SavePickedWeapon (Weapons weapon , Main.Players currentPlayer,
+                                     MainMenuFragment.Mode _mode, Bundle bundle)
     {
         switch (_mode)
         {

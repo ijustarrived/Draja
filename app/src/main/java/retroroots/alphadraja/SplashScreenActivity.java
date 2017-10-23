@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.VideoView;
 
 import retroroots.alphadraja.CanisterEngine.Android.Application.ActivityConfig;
@@ -18,9 +19,13 @@ public class SplashScreenActivity extends ActionBarActivity {
 
     private static Activity activity;
 
+    private static VideoView splashScreenVdVw;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_splash_screen);
 
         activity = this;
@@ -31,7 +36,9 @@ public class SplashScreenActivity extends ActionBarActivity {
         //Hide upper action bar
         getSupportActionBar().hide();
 
-        final VideoView splashScreenVdVw = (VideoView) findViewById(R.id.splashScreenVdVw);
+
+
+        splashScreenVdVw = (VideoView) findViewById(R.id.splashScreenVdVw);
 
         splashScreenVdVw.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" +
                 R.raw.drajasplashscreenvid));
@@ -58,6 +65,22 @@ public class SplashScreenActivity extends ActionBarActivity {
                 ActivityConfig.CreateActivity(Main.class, context, true);
             }
         });
+
+        splashScreenVdVw.start();
+    }
+
+    @Override
+    protected void onPause()
+    {
+        super.onPause();
+
+        splashScreenVdVw.pause();
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
 
         splashScreenVdVw.start();
     }

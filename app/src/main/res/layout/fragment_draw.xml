@@ -14,7 +14,7 @@
         android:textSize="40sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="50dp"
         android:autoText="true"/>
 
     <Button
@@ -41,24 +41,25 @@
         android:layout_height="wrap_content"
         android:id="@+id/drawBackBtnImg"
         android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
-        android:layout_alignTop="@+id/textView4"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
-        android:contentDescription="@string/drawBackBtnImgTxt" />
+        android:contentDescription="@string/drawBackBtnImgTxt"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/drawBackBtnImg"
         android:layout_above="@+id/doneBtn"
-        android:layout_marginTop="10dp">
+        android:layout_below="@+id/textView4">
 
         <retroroots.alphadraja.DrawingView
             android:id="@+id/drawView"
             android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:background= "#FFFFFFFF"/>
+            android:layout_height="fill_parent"
+            android:background= "#FFFFFFFF"
+            android:layout_gravity="center" />
 
     </FrameLayout>
 
@@ -66,11 +67,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/drawRestartImgBtn"
-        android:layout_alignTop="@+id/textView4"
+        android:contentDescription="@string/drawResttartImgBtnTxt"
+        android:src="@android:drawable/ic_menu_rotate"
+        android:layout_alignBottom="@+id/drawBackBtnImg"
+        android:layout_toRightOf="@+id/drawBackBtnImg"
+        android:layout_toEndOf="@+id/drawBackBtnImg"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/drawSoungImgBtn"
+        android:src="@android:drawable/ic_lock_silent_mode_off"
+        android:contentDescription="@string/audioImgBtnInfo"
+        android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="50dp"
-        android:layout_marginEnd="50dp"
-        android:contentDescription="@string/drawResttartImgBtnTxt"
-        android:src="@android:drawable/ic_menu_rotate" />
+        android:layout_marginRight="10dp"/>
 </RelativeLayout>

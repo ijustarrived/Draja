@@ -168,4 +168,61 @@ public class FragmentConfig
 
         //fragmentTrans.replace(contentId, )
     }
+
+    public static void ClearBackStack(FragmentManager fragmentManager, boolean keepLastItem)
+    {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+        int backStackCount = fragmentManager.getBackStackEntryCount();
+
+            while (backStackCount >  (keepLastItem ? 1 : 0))
+            {
+                transaction.remove(fragmentManager.findFragmentById(
+                        fragmentManager.getBackStackEntryAt(backStackCount - 1).getId()));
+
+                backStackCount--;
+            }
+
+        transaction.commit();
+    }
+
+    /**
+     * Pops stacks until told. Doesn't clean stack
+     *
+     * @param fragmentManager
+     * @param fragmentTag flag that indicates stop
+     * @throws Exception throws fragment not found if tag is not found
+     */
+    public static void PopStacks(FragmentManager fragmentManager, String fragmentTag) throws Exception
+    {
+        Fragment fragment = fragmentManager.findFragmentByTag(fragmentTag);
+
+        if (fragment == null)
+            throw new Exception("Fragment not found");
+
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+        FragmentManager.BackStackEntry backStackEntry;
+
+        for( int i = fragmentManager.getBackStackEntryCount() - 1; i > 0; i--)
+        {
+            backStackEntry = fragmentManager.getBackStackEntryAt(i);
+
+            if (backStackEntry.getName().equals(fragmentTag))
+            {
+                break;
+            }
+
+            else
+            {
+                Fragment currentFragment = fragmentManager.findFragmentByTag(backStackEntry.getName());
+
+                //fragmentManager.popBackStack();
+
+                transaction.remove(currentFragment);
+            }
+        }
+
+        transaction.commit();
+    }
 }

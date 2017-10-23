@@ -11,9 +11,9 @@
         android:text="@string/modeLblTxt"
         android:id="@+id/textView2"
         android:textSize="40sp"
-        android:layout_marginTop="26dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/modeBackBtnImg"
+        android:layout_toLeftOf="@+id/pveChkBx"
+        android:layout_toStartOf="@+id/pveChkBx" />
 
     <Button
         android:layout_width="wrap_content"
@@ -50,10 +50,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/modeBackBtnImg"
         android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
-        android:layout_marginLeft="50dp"
-        android:layout_marginStart="50dp"
         android:contentDescription="@string/backBtnImgTxt"
-        android:layout_alignTop="@+id/textView2"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

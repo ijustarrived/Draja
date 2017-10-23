@@ -101,7 +101,7 @@ public class ModeFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                ((Main)getActivity()).onBackPressed();
+                ((Main)getActivity()).onBackBtnPressed();
             }
         });
         //endregion
