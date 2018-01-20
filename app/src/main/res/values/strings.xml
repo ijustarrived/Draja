@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">AlphaDraja 5.2</string>
+    <string name="app_name">Draja</string>
     <string name="action_settings">Settings</string>
-    <string name="startBtnText">Start</string>
+    <string name="startBtnText">Begin</string>
     <string name="optionsBtnTxt">Options</string>
     <string name="drawLblTxt">Draw</string>
     <string name="doneBtnTxt">Done</string>
@@ -19,7 +19,7 @@
     <string name="pveChkBxTxt">PVE</string>
     <string name="pvpChkBxTxt">PVP</string>
     <string name="modeLblTxt">Mode</string>
-    <string name="BombChkBxTxt">Bomb</string>
+    <string name="BombChkBxTxt">Talisman</string>
     <string name="SwordChkBxTxt">Sword</string>
     <string name="ClearBtnTxt">Clear</string>
     <string name="backBtnImgTxt">Goes back a screen</string>
@@ -38,4 +38,19 @@
     <string name="drawResttartImgBtnTxt">Restarts game and brings back tp weapon selection</string>
     <string name="continueBtn">Continue</string>
     <string name="losing_mark_txt">Losing mark</string>
+    <string name="lostdesctxt">lostDesc</string>
+    <string name="p1cornerTxt">P1</string>
+    <string name="p2CornerTxt">P2</string>
+    <string name="exit_txt">Exit?</string>
+    <string name="resume_txt">Resume</string>
+    <string name="cancel_txt">Cancel</string>
+    <string name="p1m1desctxt">p1m1Desc</string>
+    <string name="p2m2desctxt">p2m2desc</string>
+    <string name="p2m1desctxt">p2m1desc</string>
+    <string name="p2m3desctxt">p2m3desc</string>
+    <string name="vidhackdesctxt">vidHackDesc</string>
+    <string name="backgroundimgdesctxt">backgroundImgDesc</string>
+    <string name="fadeimgdesctxt">fadeImgDesc</string>
+    <string name="playerRes">Player</string>
+    <string name="buildRes">Build 1.0.3</string>
 </resources>

@@ -5,7 +5,19 @@
       <config />
     </shared>
     <layouts>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_fight.xml">
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_draw.xml">
+        <config>
+          <state>Landscape</state>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_main_menu.xml">
+        <config>
+          <state>Landscape</state>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_weapon.xml">
         <config>
           <state>Landscape</state>
           <theme>@style/AppTheme</theme>
@@ -13,9 +25,12 @@
       </layout>
     </layouts>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="935f76a3-d9d1-4ebc-b3f2-d81b8565ea65" name="Default" comment="" />
-    <ignored path="AlphaDraja 5.2.iws" />
+    <list default="true" id="257c835c-8b98-4b2f-8d6d-3d110a6dd49a" name="Default" comment="" />
+    <ignored path="FullDraja 3.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,16 +45,19 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="AlphaDraja 5.2" />
+    <favorites_list name="FullDraja 3" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fragment_fight.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_fight.xml">
+      <file leaf-file-name="fragment_weapon.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_weapon.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6545454">
-              <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
-              <folding />
+            <state vertical-scroll-proportion="-0.92727274">
+              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="66" />
+              <folding>
+                <element signature="e#1028#1047#0" expanded="true" />
+                <element signature="e#1310#1330#0" expanded="true" />
+              </folding>
             </state>
           </provider>
           <provider editor-type-id="android-designer">
@@ -47,65 +65,109 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fightFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/retroroots/alphadraja/fightFragment.java">
+      <file leaf-file-name="fragment_draw.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_draw.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2192691">
-              <caret line="699" column="5" selection-start-line="699" selection-start-column="5" selection-end-line="699" selection-end-column="5" />
+            <state vertical-scroll-proportion="-6.509091">
+              <caret line="57" column="46" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
               <folding>
-                <element signature="class#WinnerState#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#fightFragment#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#onCreate#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#onCreateView#0;class#fightFragment#0" expanded="false" />
-                <element signature="e#3285#3308#0" expanded="false" />
-                <element signature="e#3919#3979#0" expanded="false" />
-                <element signature="e#7041#7062#0" expanded="false" />
-                <element signature="e#8265#8293#0" expanded="false" />
-                <element signature="e#13141#13162#0" expanded="false" />
-                <element signature="docComment;method#startFight#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#startFight#0;class#fightFragment#0" expanded="false" />
-                <element signature="e#13854#13888#0" expanded="false" />
-                <element signature="docComment;method#CheckWhoWon#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#CheckWhoWon#0;class#fightFragment#0" expanded="false" />
-                <element signature="e#15473#15509#0" expanded="false" />
-                <element signature="e#16371#16402#0" expanded="false" />
-                <element signature="e#17252#17284#0" expanded="false" />
-                <element signature="docComment;method#AssignAiFiles#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#AssignAiFiles#0;class#fightFragment#0" expanded="false" />
-                <element signature="docComment;method#CopyPlayerFilesToAiFiles#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#CopyPlayerFilesToAiFiles#0;class#fightFragment#0" expanded="false" />
-                <element signature="docComment;method#SetPlayerLossVisibilities#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#SetPlayerLossVisibilities#0;class#fightFragment#0" expanded="false" />
-                <element signature="e#18801#18836#0" expanded="false" />
-                <element signature="e#19400#19435#0" expanded="false" />
-                <element signature="method#ShowDialog#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#NextRound#0;class#fightFragment#0" expanded="false" />
-                <element signature="e#22168#22198#0" expanded="false" />
-                <element signature="method#Create#0;class#fightFragment#0" expanded="false" />
-                <element signature="e#22585#22625#0" expanded="false" />
-                <element signature="e#22949#22970#0" expanded="false" />
-                <element signature="e#23379#23400#0" expanded="false" />
-                <element signature="e#24203#24212#0" expanded="false" />
-                <element signature="e#24356#24399#0" expanded="false" />
-                <element signature="e#24667#24748#0" expanded="false" />
-                <element signature="method#Delete#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#Copy#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#Append#0;class#fightFragment#0" expanded="false" />
-                <element signature="method#Play#0;class#fightFragment#0" expanded="false" />
+                <element signature="e#497#517#0" expanded="true" />
+                <element signature="e#2162#2181#0" expanded="true" />
+                <element signature="e#2540#2567#0" expanded="true" />
+                <element signature="e#3888#3919#0" expanded="true" />
+                <element signature="e#4468#4493#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DrawFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/retroroots/alphadraja/DrawFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
+              <folding>
+                <element signature="method#DrawFragment#0;class#DrawFragment#0" expanded="false" />
+                <element signature="method#onCreate#0;class#DrawFragment#0" expanded="false" />
+                <element signature="e#2155#2173#0" expanded="false" />
+                <element signature="e#4287#4345#0" expanded="true" />
+                <element signature="method#SoundImgBtnClick#0;class#DrawFragment#0" expanded="false" />
+                <element signature="method#onAttach#0;class#DrawFragment#0" expanded="false" />
+                <element signature="method#onDetach#0;class#DrawFragment#0" expanded="false" />
+                <element signature="method#OnDoneClick#0;class#DrawFragment#0" expanded="false" />
+                <element signature="class#OnPlayerDoneDrawing#0;class#DrawFragment#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WinnerDialogFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/retroroots/alphadraja/WinnerDialogFragment.java">
+      <file leaf-file-name="WeaponFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/retroroots/alphadraja/WeaponFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+              <caret line="204" column="12" selection-start-line="204" selection-start-column="12" selection-end-line="204" selection-end-column="12" />
               <folding>
-                <element signature="docComment;class#WinnerDialogFragment#0" expanded="false" />
-                <element signature="method#onCreateView#0;class#WinnerDialogFragment#0" expanded="false" />
+                <element signature="class#Weapons#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="method#WeaponFragment#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="method#onAttach#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="method#onCreate#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="e#3214#3232#0" expanded="false" />
+                <element signature="e#6008#6066#0" expanded="true" />
+                <element signature="method#OnShurikenChckBxClick#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="method#OnBombChckBxClick#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="method#OnSwordChckBxClick#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="method#OnOkClick#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="method#SoundImgBtnClick#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="docComment;method#SavePickedWeapon#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="method#SavePickedWeapon#0;class#WeaponFragment#0" expanded="false" />
+                <element signature="class#OnWeaponPicked#0;class#WeaponFragment#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_main_menu.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_main_menu.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.4363636">
+              <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+              <folding>
+                <element signature="e#2237#2271#0" expanded="true" />
+                <element signature="e#2435#2453#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainMenuFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/retroroots/alphadraja/MainMenuFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <folding>
+                <element signature="class#Mode#0;class#MainMenuFragment#0" expanded="false" />
+                <element signature="e#1628#1646#0" expanded="false" />
+                <element signature="method#onDetach#0;class#MainMenuFragment#0" expanded="false" />
+                <element signature="method#SoundImgBtnClick#0;class#MainMenuFragment#0" expanded="false" />
+                <element signature="method#StartBtnClick#0;class#MainMenuFragment#0" expanded="false" />
+                <element signature="method#RestartGame#0;class#MainMenuFragment#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5736677">
+              <caret line="54" column="48" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,7 +180,7 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="AlphaDraja 5.2" />
+              <option name="name" value="FullDraja 3" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
@@ -129,7 +191,7 @@
                 <option name="path" value="$PROJECT_DIR$/app" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
-                <option name="name" value="AlphaDraja 5.2" />
+                <option name="name" value="FullDraja 3" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
@@ -143,22 +205,22 @@
           <value>
             <list>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in root project 'AlphaDraja 5.2'." />
+                <option name="description" value="Displays all buildscript dependencies declared in root project 'FullDraja 3'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="buildEnvironment" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'AlphaDraja 5.2'. [incubating]" />
+                <option name="description" value="Displays the components produced by root project 'FullDraja 3'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="components" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'AlphaDraja 5.2'." />
+                <option name="description" value="Displays all dependencies declared in root project 'FullDraja 3'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencies" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'AlphaDraja 5.2'." />
+                <option name="description" value="Displays the insight into a specific dependency in root project 'FullDraja 3'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="dependencyInsight" />
               </ExternalTaskPojo>
@@ -173,22 +235,22 @@
                 <option name="name" value="init" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'AlphaDraja 5.2'. [incubating]" />
+                <option name="description" value="Displays the configuration model of root project 'FullDraja 3'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="model" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'AlphaDraja 5.2'." />
+                <option name="description" value="Displays the sub-projects of root project 'FullDraja 3'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="projects" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'AlphaDraja 5.2'." />
+                <option name="description" value="Displays the properties of root project 'FullDraja 3'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="properties" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'AlphaDraja 5.2' (some of the displayed tasks may belong to subprojects)." />
+                <option name="description" value="Displays the tasks runnable from root project 'FullDraja 3' (some of the displayed tasks may belong to subprojects)." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="tasks" />
               </ExternalTaskPojo>
@@ -1321,7 +1383,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4335820993803" />
+        <entry key="$PROJECT_DIR$" value="4412983569346" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1637,9 +1699,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_weapon.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_draw.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/retroroots/alphadraja/DrawFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/retroroots/alphadraja/WeaponFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_main_menu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/retroroots/alphadraja/MainMenuFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_fight.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/retroroots/alphadraja/fightFragment.java" />
       </list>
     </option>
   </component>
@@ -1674,20 +1740,19 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AlphaDraja 5.2" />
+              <option name="myItemId" value="FullDraja 3" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AlphaDraja 5.2" />
+              <option name="myItemId" value="FullDraja 3" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1705,7 +1770,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AlphaDraja 5.2" />
+              <option name="myItemId" value="FullDraja 3" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1719,7 +1784,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AlphaDraja 5.2" />
+              <option name="myItemId" value="FullDraja 3" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1737,7 +1802,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AlphaDraja 5.2" />
+              <option name="myItemId" value="FullDraja 3" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1747,7 +1812,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AlphaDraja 5.2" />
+              <option name="myItemId" value="FullDraja 3" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1761,7 +1826,7 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AlphaDraja 5.2" />
+              <option name="myItemId" value="FullDraja 3" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1779,6 +1844,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -1824,39 +1890,6 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="DEBUGGER_TYPE" value="Java" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <Native>
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-      </Native>
-      <Java />
-      <Hybrid>
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-      </Hybrid>
-      <Profilers>
-        <option name="GAPID_DISABLE_PCS" value="false" />
-      </Profilers>
-      <method />
-    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -1896,48 +1929,6 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="JarApplication" factoryName="JAR Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SCRATCH_FILE_ID" value="0" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -1960,34 +1951,6 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
       <option name="OUTPUT_DIRECTORY" />
       <option name="ANNOTATION_TYPE" />
       <option name="ENV_VARIABLES" />
@@ -2053,12 +2016,15 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="935f76a3-d9d1-4ebc-b3f2-d81b8565ea65" name="Default" comment="" />
-      <created>1508712986114</created>
+      <changelist id="257c835c-8b98-4b2f-8d6d-3d110a6dd49a" name="Default" comment="" />
+      <created>1516103053563</created>
       <option name="number" value="Default" />
-      <updated>1508712986114</updated>
+      <updated>1516103053563</updated>
     </task>
     <servers />
   </component>
@@ -2072,20 +2038,20 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25416037" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39932886" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39932886" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2096,89 +2062,130 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_draw.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.033009708">
-          <caret line="1" column="42" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_fight.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6545454">
-          <caret line="77" column="37" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="37" />
-          <folding />
+        <state vertical-scroll-proportion="-6.509091">
+          <caret line="57" column="46" selection-start-line="57" selection-start-column="46" selection-end-line="57" selection-end-column="46" />
+          <folding>
+            <element signature="e#497#517#0" expanded="true" />
+            <element signature="e#2162#2181#0" expanded="true" />
+            <element signature="e#2540#2567#0" expanded="true" />
+            <element signature="e#3888#3919#0" expanded="true" />
+            <element signature="e#4468#4493#0" expanded="true" />
+          </folding>
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/retroroots/alphadraja/WinnerDialogFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/retroroots/alphadraja/DrawFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="32" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+          <caret line="145" column="0" selection-start-line="145" selection-start-column="0" selection-end-line="145" selection-end-column="0" />
           <folding>
-            <element signature="docComment;class#WinnerDialogFragment#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#WinnerDialogFragment#0" expanded="false" />
+            <element signature="method#DrawFragment#0;class#DrawFragment#0" expanded="false" />
+            <element signature="method#onCreate#0;class#DrawFragment#0" expanded="false" />
+            <element signature="e#2155#2173#0" expanded="false" />
+            <element signature="e#4287#4345#0" expanded="true" />
+            <element signature="method#SoundImgBtnClick#0;class#DrawFragment#0" expanded="false" />
+            <element signature="method#onAttach#0;class#DrawFragment#0" expanded="false" />
+            <element signature="method#onDetach#0;class#DrawFragment#0" expanded="false" />
+            <element signature="method#OnDoneClick#0;class#DrawFragment#0" expanded="false" />
+            <element signature="class#OnPlayerDoneDrawing#0;class#DrawFragment#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/retroroots/alphadraja/fightFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/retroroots/alphadraja/WeaponFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2192691">
-          <caret line="699" column="5" selection-start-line="699" selection-start-column="5" selection-end-line="699" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="204" column="12" selection-start-line="204" selection-start-column="12" selection-end-line="204" selection-end-column="12" />
           <folding>
-            <element signature="class#WinnerState#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#fightFragment#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#onCreate#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#fightFragment#0" expanded="false" />
-            <element signature="e#3285#3308#0" expanded="false" />
-            <element signature="e#3919#3979#0" expanded="false" />
-            <element signature="e#7041#7062#0" expanded="false" />
-            <element signature="e#8265#8293#0" expanded="false" />
-            <element signature="e#13141#13162#0" expanded="false" />
-            <element signature="docComment;method#startFight#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#startFight#0;class#fightFragment#0" expanded="false" />
-            <element signature="e#13854#13888#0" expanded="false" />
-            <element signature="docComment;method#CheckWhoWon#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#CheckWhoWon#0;class#fightFragment#0" expanded="false" />
-            <element signature="e#15473#15509#0" expanded="false" />
-            <element signature="e#16371#16402#0" expanded="false" />
-            <element signature="e#17252#17284#0" expanded="false" />
-            <element signature="docComment;method#AssignAiFiles#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#AssignAiFiles#0;class#fightFragment#0" expanded="false" />
-            <element signature="docComment;method#CopyPlayerFilesToAiFiles#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#CopyPlayerFilesToAiFiles#0;class#fightFragment#0" expanded="false" />
-            <element signature="docComment;method#SetPlayerLossVisibilities#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#SetPlayerLossVisibilities#0;class#fightFragment#0" expanded="false" />
-            <element signature="e#18801#18836#0" expanded="false" />
-            <element signature="e#19400#19435#0" expanded="false" />
-            <element signature="method#ShowDialog#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#NextRound#0;class#fightFragment#0" expanded="false" />
-            <element signature="e#22168#22198#0" expanded="false" />
-            <element signature="method#Create#0;class#fightFragment#0" expanded="false" />
-            <element signature="e#22585#22625#0" expanded="false" />
-            <element signature="e#22949#22970#0" expanded="false" />
-            <element signature="e#23379#23400#0" expanded="false" />
-            <element signature="e#24203#24212#0" expanded="false" />
-            <element signature="e#24356#24399#0" expanded="false" />
-            <element signature="e#24667#24748#0" expanded="false" />
-            <element signature="method#Delete#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#Copy#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#Append#0;class#fightFragment#0" expanded="false" />
-            <element signature="method#Play#0;class#fightFragment#0" expanded="false" />
+            <element signature="class#Weapons#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="method#WeaponFragment#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="method#onAttach#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="method#onCreate#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="e#3214#3232#0" expanded="false" />
+            <element signature="e#6008#6066#0" expanded="true" />
+            <element signature="method#OnShurikenChckBxClick#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="method#OnBombChckBxClick#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="method#OnSwordChckBxClick#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="method#OnOkClick#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="method#SoundImgBtnClick#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="docComment;method#SavePickedWeapon#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="method#SavePickedWeapon#0;class#WeaponFragment#0" expanded="false" />
+            <element signature="class#OnWeaponPicked#0;class#WeaponFragment#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_weapon.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.92727274">
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="66" />
+          <folding>
+            <element signature="e#1028#1047#0" expanded="true" />
+            <element signature="e#1310#1330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_main_menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4363636">
+          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+          <folding>
+            <element signature="e#2237#2271#0" expanded="true" />
+            <element signature="e#2435#2453#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/retroroots/alphadraja/MainMenuFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding>
+            <element signature="class#Mode#0;class#MainMenuFragment#0" expanded="false" />
+            <element signature="e#1628#1646#0" expanded="false" />
+            <element signature="method#onDetach#0;class#MainMenuFragment#0" expanded="false" />
+            <element signature="method#SoundImgBtnClick#0;class#MainMenuFragment#0" expanded="false" />
+            <element signature="method#StartBtnClick#0;class#MainMenuFragment#0" expanded="false" />
+            <element signature="method#RestartGame#0;class#MainMenuFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5736677">
+          <caret line="54" column="48" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

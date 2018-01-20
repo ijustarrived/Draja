@@ -1,6 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="retroroots.alphadraja.WeaponFragment">
+    xmlns:tools="http://schemas.android.com/tools
+    " android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.retroroots.alphadraja.WeaponFragment"
+    android:background="#ffffff">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -12,9 +15,19 @@
         android:id="@+id/weaponTitleLbl"
         android:textIsSelectable="false"
         android:textSize="40sp"
+        android:layout_above="@+id/playerWeaponLbl"
+        android:layout_centerHorizontal="true"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/playerWeaponLbl"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/playerRes"
         android:layout_above="@+id/swordChkBx"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="69dp" />
+        android:layout_marginBottom="60dp"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -23,67 +36,80 @@
         android:id="@+id/drawBtn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="46dp" />
+        android:layout_marginBottom="46dp"
+        android:background="@drawable/btn_borders"
+        />
 
     <CheckBox
         android:checked="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:button="@drawable/checkboxes"
         android:text="@string/ShurikenChkBxTxt"
         android:id="@+id/shurikenChkBx"
         android:layout_alignTop="@+id/bombChkBx"
         android:layout_toLeftOf="@+id/weaponTitleLbl"
-        android:layout_toStartOf="@+id/weaponTitleLbl" />
+        android:layout_toStartOf="@+id/weaponTitleLbl"
+        android:textSize="20sp"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/BombChkBxTxt"
+        android:button="@drawable/checkboxes"
         android:id="@+id/bombChkBx"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/weaponTitleLbl"
-        android:layout_toEndOf="@+id/weaponTitleLbl" />
+        android:layout_toEndOf="@+id/weaponTitleLbl"
+        android:textSize="20sp"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:button="@drawable/checkboxes"
         android:text="@string/SwordChkBxTxt"
         android:id="@+id/swordChkBx"
         android:layout_alignTop="@+id/shurikenChkBx"
         android:layout_alignLeft="@+id/drawBtn"
-        android:layout_alignStart="@+id/drawBtn" />
+        android:layout_alignStart="@+id/drawBtn"
+        android:textSize="20sp"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/weaponBackBtnImg"
-        android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+        android:src="@mipmap/back_img"
         android:contentDescription="@string/modeBackBtnImgTxt"
         android:layout_alignBottom="@+id/weaponRestartImgBtn"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="20dp"
+        android:background="#ffffff"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/weaponRestartImgBtn"
         android:contentDescription="@string/weaponRestartImgBnTxt"
-        android:src="@android:drawable/ic_menu_rotate"
+        android:src="@mipmap/restart_img"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/weaponBackBtnImg"
         android:layout_toEndOf="@+id/weaponBackBtnImg"
-        android:layout_marginLeft="10dp"/>/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"/>/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/weapongSoungImgBtn"
-        android:src="@android:drawable/ic_lock_silent_mode_off"
+        android:src="@mipmap/vol_on"
         android:contentDescription="@string/audioImgBtnInfo"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="20dp"
+        android:background="#ffffff"
+        android:layout_marginTop="20dp"/>
 
 </RelativeLayout>

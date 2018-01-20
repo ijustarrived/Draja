@@ -1,87 +1,126 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="retroroots.alphadraja.DrawFragment"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.retroroots.alphadraja.DrawFragment"
+    android:background="#ffffff"
     >
-
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/drawLblTxt"
-        android:id="@+id/textView4"
+        android:id="@+id/drawTitleLbl"
         android:textSize="40sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:autoText="true"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#c1081f"
+        android:layout_below="@+id/drawTitleLbl"
+        android:id="@+id/viewIngr" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/doneBtnTxt"
+        android:background="@mipmap/done_img"
         android:id="@+id/doneBtn"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ClearBtnTxt"
         android:id="@+id/clearBtn"
-        android:layout_alignBottom="@+id/doneBtn"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:background="@mipmap/erase_img"
+        android:layout_toLeftOf="@+id/drawRestartImgBtn"
+        android:layout_alignLeft="@+id/drawBackBtnImg"
+        android:layout_alignStart="@+id/drawBackBtnImg"
+        android:layout_alignTop="@+id/doneBtn"
+        android:layout_alignBottom="@+id/doneBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/playerDrawLbl"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/playerRes"
+        android:layout_alignTop="@+id/doneBtn"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/drawBackBtnImg"
-        android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+        android:src="@mipmap/back_img"
         android:contentDescription="@string/drawBackBtnImgTxt"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
         android:layout_above="@+id/doneBtn"
-        android:layout_below="@+id/textView4">
+        android:layout_below="@+id/viewIngr"
+        android:id="@+id/frameLt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
-        <retroroots.alphadraja.DrawingView
+        <com.retroroots.alphadraja.DrawingView
             android:id="@+id/drawView"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background= "#FFFFFFFF"
-            android:layout_gravity="center" />
+            android:background= "#FFFFFFFF" />
 
     </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#c1081f"
+        android:layout_below="@+id/frameLt"
+        android:id="@+id/viewIngr2" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/drawRestartImgBtn"
         android:contentDescription="@string/drawResttartImgBtnTxt"
-        android:src="@android:drawable/ic_menu_rotate"
+        android:src="@mipmap/restart_img"
         android:layout_alignBottom="@+id/drawBackBtnImg"
         android:layout_toRightOf="@+id/drawBackBtnImg"
         android:layout_toEndOf="@+id/drawBackBtnImg"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="20dp"
+        android:background="#ffffff"
+        android:layout_marginTop="20dp"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/drawSoungImgBtn"
-        android:src="@android:drawable/ic_lock_silent_mode_off"
+        android:src="@mipmap/vol_on"
         android:contentDescription="@string/audioImgBtnInfo"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="#ffffff"/>
 </RelativeLayout>

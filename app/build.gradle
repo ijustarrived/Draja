@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "retroroots.alphadraja"
+        applicationId "com.retroroots.alphadraja"
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
